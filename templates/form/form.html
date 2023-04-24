@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+    <script src="../static/myfirst.js"></script>
+    <script>
+        function myFunction() {
+            alert("Hello from a static file!");
+        }
+    </script>
+    <body>
+        <button onclick="myFunction()">Click me!</button>
+        <h1>{{data.content}}</h1>
+        
+        <form action="/process", method="post">
+            {% for question in data.questions %}
+                <label for= "form-{{question.index}}" >{{question.q}}:</label><br>
+                <input type="text" id="form-{{question.index}}" name="form-{{question.index}}"><br>
+            {% endfor %}
+            <button type="submit">Submit</button>
+        </form>
+    </body>
+</html>
